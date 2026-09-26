@@ -363,6 +363,13 @@
         });
       }
 
+      // AGGRESSIVE AUTO-COMMIT:
+      // Mobile users often swipe away or press "Back" abruptly. Genially might not fire LMSCommit in time.
+      // We force an instant background save whenever critical tracking data changes!
+      if (element === 'cmi.suspend_data' || element === 'cmi.core.score.raw' || element === 'cmi.core.lesson_location') {
+         commitToBackend();
+      }
+
       return 'true';
     },
 
