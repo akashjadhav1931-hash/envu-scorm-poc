@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10in" height="0.08333334in" class="slides-canvas" viewBox="0 0 720 6">
+  <defs>
+    <marker id="ah1" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="7" viewBox="-6 -3.5 12 7" orient="auto">
+      <path d="M2.7 0L-0.3 1.5-0.3-1.5 2.7 0z" fill="#10384F" />
+    </marker>
+  </defs>
+  <g text-rendering="geometricPrecision" transform="scale(1, 1)">
+    <g transform="matrix(1, 0, 0, 1, -181, -388)">
+      <path marker-end="url(#ah1)" stroke-width="0.5" stroke="#10384F" fill="none" d="M180.58 388.51L896.82 390.29 897.07 390.29" />
+    </g>
+  </g>
+</svg>

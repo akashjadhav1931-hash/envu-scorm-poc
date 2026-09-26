@@ -7,6 +7,7 @@
 
 const express = require('express');
 const cors    = require('cors');
+const path    = require('path');
 const { initDb, dbWrapper } = require('./db');
 const { router: scormRoutes, setDb } = require('./routes/scorm');
 
@@ -19,9 +20,15 @@ app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req, _res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  // Only log API requests to prevent console spam from static file loads
+  if (req.url.startsWith('/api')) {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  }
   next();
 });
+
+// Serve static SCORM files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.get('/health', (_req, res) => {

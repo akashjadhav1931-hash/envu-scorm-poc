@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCORM Player — Genially Course</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #0F172A; font-family: sans-serif; }
+
+    #loader {
+      position: fixed; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #0f1b2d; color: #fff; z-index: 999;
+      gap: 16px;
+      transition: opacity 0.4s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    #loader-spinner {
+      width: 48px; height: 48px;
+      border: 4px solid rgba(255,255,255,0.15);
+      border-top-color: #4f9cf9;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #loader p { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+    #scorm-frame {
+      width: 100%; height: 100%; border: none; display: block;
+    }
+
+    #error-panel {
+      display: none;
+      position: fixed; inset: 0;
+      background: #1a0a0a; color: #ff6b6b;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px; font-family: monospace;
+    }
+    #error-panel.visible { display: flex; }
+    #error-panel h2 { font-size: 18px; }
+    #error-panel p { font-size: 13px; color: rgba(255,255,255,0.5); max-width: 400px; text-align: center; }
+
+    /* Dev debug overlay — shown in development */
+    #debug-panel {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.85); color: #00ff88;
+      font-size: 11px; font-family: monospace; padding: 6px 12px;
+      max-height: 160px; overflow-y: auto;
+      z-index: 1000;
+      display: none; /* Toggle to 'block' to enable */
+    }
+    #debug-panel .log-entry { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 2px 0; }
+    #debug-panel .log-entry.commit { color: #ffd700; }
+    #debug-panel .log-entry.error  { color: #ff6b6b; }
+  </style>
+</head>
+<body>
+
+<!-- Loading Overlay Removed (handled natively by React Native) -->
+
+<!-- Error Panel -->
+<div id="error-panel">
+  <h2>⚠ Course failed to load</h2>
+  <p id="error-msg">An error occurred while loading the course. Please try again.</p>
+</div>
+
+<!-- Genially iframe -->
+<iframe
+  id="scorm-frame"
+  src="genially.html"
+  allow="autoplay; fullscreen"
+  allowfullscreen
+></iframe>
+
+<!-- Debug Log Panel (toggle display to enable) -->
+<div id="debug-panel" id="debug-panel"></div>
+
+<!--
+  =====================================================
+  SCORM Player Script
+  =====================================================
+  Architecture:
+    - This page is the "LMS frame" — it owns window.API
+    - genially.html is loaded in an iframe (same origin)
+    - app/scorm.js walks window.parent → finds window.API here
+    - All LMS calls are intercepted and sent to backend
+  =====================================================
+-->
+<script>
+(function () {
+  'use strict';
+
+  // ─── Configuration ──────────────────────────────────────────────
+  const urlParams = new URLSearchParams(window.location.search);
+  const CONFIG = {
+    // Backend API base URL — update when backend is running
+    backendUrl: 'https://envu-scorm-api.onrender.com',
+
+    // Course/user identifiers (in production, pass via URL params or postMessage from RN)
+    courseId:   urlParams.get('courseId')  || 'genially-course-1',
+    userId:     urlParams.get('userId')    || 'demo-user-1',
+    courseUrl:  urlParams.get('courseUrl') || 'genially.html',
+
+    // Debug logging
+    debug: true,
+  };
+
+  // Set the iframe source dynamically
+  document.getElementById('scorm-frame').src = CONFIG.courseUrl;
+
+  // ─── Debug Logger ────────────────────────────────────────────────
+  const debugPanel = document.getElementById('debug-panel');
+  function log(msg, type = 'info') {
+    if (!CONFIG.debug) return;
+    console.log(`[SCORM Player] ${msg}`);
+    const el = document.createElement('div');
+    el.className = `log-entry ${type}`;
+    el.textContent = `${new Date().toISOString().substr(11,8)} ${msg}`;
+    debugPanel.appendChild(el);
+    debugPanel.scrollTop = debugPanel.scrollHeight;
+  }
+
+  // ─── UI Helpers ──────────────────────────────────────────────────
+  const errorPanel = document.getElementById('error-panel');
+  const errorMsg   = document.getElementById('error-msg');
+
+  function setLoaderText(t) { log('Loader text changed (hidden natively): ' + t); }
+  function hideLoader()     { log('Hide loader called'); }
+  function showError(msg)   {
+    errorMsg.textContent = msg;
+    errorPanel.classList.add('visible');
+  }
+
+  // ─── SCORM State ─────────────────────────────────────────────────
+  // In-memory SCORM 1.2 CMI data model
+  const cmi = {
+    'cmi.core.student_id':       CONFIG.userId,
+    'cmi.core.student_name':     'Demo User',
+    'cmi.core.lesson_status':    'not attempted',
+    'cmi.core.lesson_location':  '',
+    'cmi.core.score.raw':        '',
+    'cmi.core.score.min':        '0',
+    'cmi.core.score.max':        '100',
+    'cmi.core.session_time':     '00:00:00',
+    'cmi.core.exit':             '',
+    'cmi.core.entry':            'ab-initio',
+    'cmi.suspend_data':          '',
+    'cmi.interactions._count':   '0',
+  };
+
+  // Interaction storage
+  const interactions = [];
+
+  // Session tracking
+  let sessionId = null;
+  let isInitialized = false;
+  let lastError = 0;
+
+  // ─── Backend API Calls ───────────────────────────────────────────
+  async function backendPost(endpoint, data) {
+    try {
+      const res = await fetch(`${CONFIG.backendUrl}${endpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      log(`Backend ${endpoint} failed: ${err.message}`, 'error');
+      return null;
+    }
+  }
+
+  async function backendGet(endpoint) {
+    try {
+      const res = await fetch(`${CONFIG.backendUrl}${endpoint}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      log(`Backend GET ${endpoint} failed: ${err.message}`, 'error');
+      return null;
+    }
+  }
+
+  // ─── Load saved SCORM state from backend ─────────────────────────
+  async function loadSavedState() {
+    setLoaderText('Loading your previous progress…');
+    const saved = await backendGet(`/api/scorm/progress/${CONFIG.courseId}?userId=${CONFIG.userId}`);
+
+    if (saved && saved.data) {
+      const d = saved.data;
+      log(`Resuming: status=${d.lessonStatus}, score=${d.score}, location=${d.lessonLocation}`);
+
+      // Restore CMI data
+      if (d.lessonStatus)    cmi['cmi.core.lesson_status']   = d.lessonStatus;
+      if (d.lessonLocation)  cmi['cmi.core.lesson_location'] = d.lessonLocation;
+      if (d.score != null)   cmi['cmi.core.score.raw']       = String(d.score);
+      if (d.suspendData)     cmi['cmi.suspend_data']         = d.suspendData;
+
+      // If previously visited: mark as resume (not ab-initio)
+      if (d.lessonStatus && d.lessonStatus !== 'not attempted') {
+        cmi['cmi.core.entry'] = 'resume';
+      }
+    } else {
+      log('No previous progress found — starting fresh');
+    }
+  }
+
+  // ─── Start session on backend ─────────────────────────────────────
+  async function startSession() {
+    const result = await backendPost('/api/scorm/session/start', {
+      userId:   CONFIG.userId,
+      courseId: CONFIG.courseId,
+    });
+    if (result && result.sessionId) {
+      sessionId = result.sessionId;
+      log(`Session started: ${sessionId}`);
+    } else {
+      log('Could not start session on backend — continuing offline', 'error');
+    }
+  }
+
+  // ─── Commit SCORM data to backend ────────────────────────────────
+  async function commitToBackend() {
+    const payload = {
+      sessionId:      sessionId,
+      userId:         CONFIG.userId,
+      courseId:       CONFIG.courseId,
+      lessonStatus:   cmi['cmi.core.lesson_status'],
+      lessonLocation: cmi['cmi.core.lesson_location'],
+      score:          parseFloat(cmi['cmi.core.score.raw']) || 0,
+      scoreMin:       parseFloat(cmi['cmi.core.score.min'])  || 0,
+      scoreMax:       parseFloat(cmi['cmi.core.score.max'])  || 100,
+      suspendData:    cmi['cmi.suspend_data'],
+      sessionTime:    cmi['cmi.core.session_time'],
+      exitStatus:     cmi['cmi.core.exit'],
+      interactions:   interactions,
+    };
+
+    log(`Committing → status=${payload.lessonStatus} score=${payload.score}`, 'commit');
+    await backendPost('/api/scorm/commit', payload);
+  }
+
+  // ─── Finish session on backend ───────────────────────────────────
+  async function finishSession() {
+    await backendPost('/api/scorm/session/finish', {
+      sessionId: sessionId,
+      userId:    CONFIG.userId,
+      courseId:  CONFIG.courseId,
+      lessonStatus: cmi['cmi.core.lesson_status'],
+    });
+    log('Session finished on backend');
+  }
+
+  // ─── Interaction helpers ─────────────────────────────────────────
+  function getInteractionIndex() {
+    return parseInt(cmi['cmi.interactions._count']) || 0;
+  }
+
+  function parseInteractionKey(element) {
+    // e.g. "cmi.interactions.0.id" → { index: 0, field: "id" }
+    const match = element.match(/^cmi\.interactions\.(\d+)\.(.+)$/);
+    if (!match) return null;
+    return { index: parseInt(match[1]), field: match[2] };
+  }
+
+  // ─── SCORM 1.2 API (window.API) ──────────────────────────────────
+  // This object is what genially's app/scorm.js finds via window.parent.API
+
+  window.API = {
+
+    LMSInitialize: function(param) {
+      log('LMSInitialize("' + param + '")');
+      if (isInitialized) {
+        log('LMSInitialize: already initialized');
+        lastError = 101; // Already initialized
+        return 'false';
+      }
+      isInitialized = true;
+      lastError = 0;
+
+      // Notify React Native that course started
+      notifyRN({ type: 'SCORM_INITIALIZED', courseId: CONFIG.courseId });
+
+      log('LMSInitialize → SUCCESS');
+      return 'true';
+    },
+
+    LMSFinish: function(param) {
+      log('LMSFinish("' + param + '")');
+      if (!isInitialized) { lastError = 301; return 'false'; }
+
+      isInitialized = false;
+      lastError = 0;
+
+      // Async: finish session (fire-and-forget — page may unload)
+      finishSession();
+
+      // Notify React Native
+      notifyRN({
+        type:         'SCORM_FINISHED',
+        courseId:     CONFIG.courseId,
+        lessonStatus: cmi['cmi.core.lesson_status'],
+        score:        parseFloat(cmi['cmi.core.score.raw']) || 0,
+      });
+
+      log('LMSFinish → SUCCESS');
+      return 'true';
+    },
+
+    LMSGetValue: function(element) {
+      if (!isInitialized) { lastError = 301; return ''; }
+      lastError = 0;
+
+      // Handle interactions._count
+      if (element === 'cmi.interactions._count') {
+        const val = String(getInteractionIndex());
+        log(`LMSGetValue("${element}") → "${val}"`);
+        return val;
+      }
+
+      // Handle interaction sub-fields
+      const interactionKey = parseInteractionKey(element);
+      if (interactionKey) {
+        const ix = interactions[interactionKey.index];
+        const val = ix ? (ix[interactionKey.field] || '') : '';
+        log(`LMSGetValue("${element}") → "${val}"`);
+        return val;
+      }
+
+      const val = cmi[element] !== undefined ? String(cmi[element]) : '';
+      log(`LMSGetValue("${element}") → "${val}"`);
+      return val;
+    },
+
+    LMSSetValue: function(element, value) {
+      if (!isInitialized) { lastError = 301; return 'false'; }
+      lastError = 0;
+
+      // Handle interaction sub-fields
+      const interactionKey = parseInteractionKey(element);
+      if (interactionKey) {
+        if (!interactions[interactionKey.index]) {
+          interactions[interactionKey.index] = {};
+        }
+        interactions[interactionKey.index][interactionKey.field] = value;
+        // Update count
+        cmi['cmi.interactions._count'] = String(
+          Math.max(getInteractionIndex(), interactionKey.index + 1)
+        );
+        log(`LMSSetValue("${element}", "${value}")`);
+        return 'true';
+      }
+
+      cmi[element] = value;
+      log(`LMSSetValue("${element}", "${value}")`);
+
+      // Special handling: notify RN on completion
+      if (element === 'cmi.core.lesson_status' && value === 'completed') {
+        notifyRN({
+          type:     'SCORM_COMPLETED',
+          courseId: CONFIG.courseId,
+          score:    parseFloat(cmi['cmi.core.score.raw']) || 0,
+        });
+      }
+
+      return 'true';
+    },
+
+    LMSCommit: function(param) {
+      if (!isInitialized) { lastError = 301; return 'false'; }
+      lastError = 0;
+
+      commitToBackend();  // async, non-blocking
+
+      log('LMSCommit → SUCCESS', 'commit');
+      return 'true';
+    },
+
+    LMSGetLastError: function() {
+      return String(lastError);
+    },
+
+    LMSGetErrorString: function(errorCode) {
+      const errors = {
+        '0':   'No error',
+        '101': 'General exception',
+        '201': 'Invalid argument error',
+        '202': 'Element cannot have children',
+        '203': 'Element not an array — cannot have count',
+        '301': 'Not initialized',
+        '401': 'Not implemented error',
+        '402': 'Invalid set value, element is a keyword',
+        '403': 'Element is read only',
+        '404': 'Element is write only',
+        '405': 'Incorrect data type',
+      };
+      return errors[String(errorCode)] || 'Unknown error';
+    },
+
+    LMSGetDiagnostic: function(errorCode) {
+      return `Diagnostic info for error code: ${errorCode}`;
+    },
+  };
+
+  // ─── React Native Bridge ─────────────────────────────────────────
+  // postMessage to React Native WebView (or parent window for testing)
+  function notifyRN(data) {
+    try {
+      // React Native WebView injects window.ReactNativeWebView
+      if (window.ReactNativeWebView) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(data));
+      } else {
+        // For browser testing: post to parent
+        window.parent.postMessage(data, '*');
+        log(`[RN Bridge] ${JSON.stringify(data)}`);
+      }
+    } catch (e) {
+      log(`[RN Bridge] postMessage failed: ${e.message}`, 'error');
+    }
+  }
+
+  // ─── iframe Load Handler ─────────────────────────────────────────
+  const iframe = document.getElementById('scorm-frame');
+
+  iframe.addEventListener('load', function() {
+    log('Genially iframe loaded');
+    notifyRN({ type: 'SCORM_UI_LOADED' });
+  });
+
+  iframe.addEventListener('error', function() {
+    showError('Failed to load the course. Check that genially.html is accessible.');
+    log('iframe load error', 'error');
+  });
+
+  // ─── Boot Sequence ───────────────────────────────────────────────
+  (async function boot() {
+    try {
+      setLoaderText('Loading course data…');
+
+      // 1. Load saved SCORM state from backend (if available)
+      await loadSavedState();
+
+      // 2. Start session on backend (if available)
+      await startSession();
+
+      setLoaderText('Launching course…');
+      log(`window.API ready. Waiting for Genially to call LMSInitialize…`);
+
+    } catch (err) {
+      log(`Boot error: ${err.message}`, 'error');
+      // Still allow course to load even if backend is down
+      setLoaderText('Launching course (offline mode)…');
+    }
+  })();
+
+})();
+</script>
+</body>
+</html>
