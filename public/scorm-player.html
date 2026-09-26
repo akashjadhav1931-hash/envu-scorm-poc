@@ -106,9 +106,6 @@
     debug: true,
   };
 
-  // Set the iframe source dynamically
-  document.getElementById('scorm-frame').src = CONFIG.courseUrl;
-
   // ─── Debug Logger ────────────────────────────────────────────────
   const debugPanel = document.getElementById('debug-panel');
   function log(msg, type = 'info') {
@@ -448,6 +445,10 @@
 
       setLoaderText('Launching course…');
       log(`window.API ready. Waiting for Genially to call LMSInitialize…`);
+
+      // 3. ONLY load Genially AFTER the old state has been successfully restored!
+      // This fixes the race condition where Genially starts from Slide 1 before progress is loaded.
+      document.getElementById('scorm-frame').src = CONFIG.courseUrl;
 
     } catch (err) {
       log(`Boot error: ${err.message}`, 'error');
