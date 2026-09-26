@@ -38,11 +38,11 @@ app.get('/health', (_req, res) => {
 app.use('/api/scorm', scormRoutes);
 
 // Dev utility — dump entire DB
-app.get('/api/scorm/db/all', (_req, res) => {
+app.get('/api/scorm/db/all', async (_req, res) => {
   const db = dbWrapper;
-  const progress     = db.all('SELECT * FROM scorm_progress');
-  const sessions     = db.all('SELECT * FROM scorm_sessions ORDER BY started_at DESC LIMIT 50');
-  const interactions = db.all('SELECT * FROM scorm_interactions ORDER BY recorded_at DESC LIMIT 100');
+  const progress     = await db.all('SELECT * FROM scorm_progress');
+  const sessions     = await db.all('SELECT * FROM scorm_sessions ORDER BY started_at DESC LIMIT 50');
+  const interactions = await db.all('SELECT * FROM scorm_interactions ORDER BY recorded_at DESC LIMIT 100');
   res.json({ progress, sessions, interactions });
 });
 
