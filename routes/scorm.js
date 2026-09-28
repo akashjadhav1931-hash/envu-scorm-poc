@@ -56,12 +56,24 @@ router.post('/commit', async (req, res) => {
     const isComplete   = cleanStatus === 'completed' || cleanStatus === 'passed';
 
     const existing = await db.get(
-      'SELECT completed_at, created_at FROM scorm_progress WHERE user_id = ? AND course_id = ?',
+      'SELECT completed_at, created_at, score, lesson_status FROM scorm_progress WHERE user_id = ? AND course_id = ?',
       [userId, courseId]
     );
 
     if (existing) {
-      const completedAt = existing.completed_at || (isComplete ? timestamp : null);
+      // 1. Never let the score decrease (Genially might send a low score when resuming)
+      if (existing.score != null && cleanScore != null && existing.score > cleanScore) {
+        cleanScore = existing.score;
+      } else if (cleanScore == null && existing.score != null) {
+        cleanScore = existing.score;
+      }
+
+      // 2. Never let the status regress from completed/passed back to incomplete
+      if (existing.lesson_status === 'completed' || existing.lesson_status === 'passed') {
+        cleanStatus = existing.lesson_status;
+      }
+
+      const completedAt = existing.completed_at || (cleanStatus === 'completed' || cleanStatus === 'passed' ? timestamp : null);
       await db.run(
         `UPDATE scorm_progress SET
           lesson_status = ?, score = ?, score_min = ?, score_max = ?, lesson_location = ?,
