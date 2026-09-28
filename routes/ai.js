@@ -51,7 +51,7 @@ STRICT MATCHING RULES:
 4. If a product description says "PRIMARY" for that pest type, always choose it.
 5. Respond ONLY with a valid JSON object. No markdown, no extra text.
 6. Use exactly this format:
-{"insect":"Name of pest","confidence":"95%","threatLevel":"High/Medium/Low - one sentence description","product_name":"Exact product name from catalog","product_category":"Category from catalog","product_segment":"Segment from catalog","product_description":"Exact description from catalog (Do not change or summarize it)","product_img":"Exact product_img from catalog"};
+{"insect":"Name of pest","confidence":"95%","threatLevel":"High/Medium/Low - one sentence description","product_name":"Exact product name from catalog","product_category":"Category from catalog","product_segment":"Segment from catalog","product_description":"Exact description from catalog (Do not change or summarize it)","product_img":"Exact product_img from catalog"}`;
 
     console.log("[AI] Sending image to OpenRouter Vision...");
 
