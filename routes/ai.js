@@ -5,27 +5,28 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const MODEL = 'meta-llama/llama-4-scout'; // Free vision model on OpenRouter
 
 // Full Envu Catalog for prompt context
+// IMPORTANT: product_segment is the PRIMARY matching key - always prefer it
 const ENVU_CATALOG = JSON.stringify([
-  { product_name: "Aqua K-Othrine® 1l", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Deltamethrin with FFAST technology, for mosquitoes, flies, and flying insects." },
-  { product_name: "AquaPy® 1l", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Fast-acting insect control for public health pests." },
-  { product_name: "DEDEVAP® Green", product_category: "Stored-Grain", product_segment: "Pest Management", description: "Natural pyrethrins aerosol for grain storage pests, beetles." },
-  { product_name: "Harmonix® Monitoring Paste 5kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "For detecting rodent activity in IPM programs." },
-  { product_name: "Harmonix® Rodent Paste 5kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Cholecalciferol (Vitamin D3) based bait for rats and mice." },
-  { product_name: "K-Obiol® EC25 1l", product_category: "Stored-Grain", product_segment: "Pest Management", description: "Deltamethrin + piperonyl butoxide for stored grain beetles, weevils." },
-  { product_name: "K-Obiol® ULV6 20L", product_category: "Stored-Grain", product_segment: "Pest Management", description: "Natural pyrethrins for space treatment in grain storage. For exposed flying insects." },
-  { product_name: "K-Othrine® Flow 25", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Deltamethrin for cockroaches, ants, bedbugs, crawling insects. Provides months of residual control." },
-  { product_name: "K-Othrine® Partix 240ml", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Deltamethrin with Partix technology for cockroaches and crawling pests on porous surfaces." },
-  { product_name: "K-Othrine® SC 7.5", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Deltamethrin suspension for broad-spectrum crawling and flying insects." },
-  { product_name: "Maxforce® Platin 30g", product_category: "Gel-Bait", product_segment: "Pest Management", description: "Clothianidin gel bait for cockroaches. BlueBead technology." },
-  { product_name: "Maxforce® Quantum 30g", product_category: "Baits", product_segment: "Pest Management", description: "Liquid gel bait, highly attractive to ants. Carbohydrate-rich matrix." },
-  { product_name: "Maxforce® White IC", product_category: "Gel-Bait", product_segment: "Pest Management", description: "Imidacloprid gel bait specifically for cockroach crack-and-crevice treatment." },
-  { product_name: "Racumin® Foam 500ml", product_category: "Rodenticide", product_segment: "Pest Management", description: "Non-bait rodenticide foam leveraging grooming behavior of rats and mice." },
-  { product_name: "Rodilon® Block 3kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone moisture-resistant bait block for rats and mice." },
-  { product_name: "Rodilon® Haver Mix 3kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone mixed bait for rodents." },
-  { product_name: "Rodilon® Pasta 5kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone soft block bait for rats and mice in varied infestations." },
-  { product_name: "Rodilon® Wheat Tech 3kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone wheat-tech bait, highly attractive to rodents." },
-  { product_name: "Aqua K-Othrine® EW20 1l", product_category: "Vector-Control", product_segment: "Mosquito Management", description: "Deltamethrin with FFAST technology for ULV fogging against mosquitoes." },
-  { product_name: "K-Othrine® WG250 2.5g", product_category: "Vector-Control", product_segment: "Mosquito Management", description: "Deltamethrin wettable granule for flying and crawling insects in public health." },
+  { product_name: "Aqua K-Othrine® 1l", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Deltamethrin with FFAST technology. Used for ULV and fogging in general pest management scenarios like flies, bedbugs, and crawling insects. NOT the primary mosquito product." },
+  { product_name: "AquaPy® 1l", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Fast-acting pyrethrin-based insect control for public health crawling pests." },
+  { product_name: "DEDEVAP® Green", product_category: "Stored-Grain", product_segment: "Pest Management", description: "Natural pyrethrins aerosol for grain storage facilities. Targets stored-product insects like grain beetles and weevils." },
+  { product_name: "Harmonix® Monitoring Paste 5kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Monitoring bait for detecting rats and mice activity in IPM strategies." },
+  { product_name: "Harmonix® Rodent Paste 5kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Cholecalciferol (Vitamin D3) based rodenticide for rats and mice control." },
+  { product_name: "K-Obiol® EC25 1l", product_category: "Stored-Grain", product_segment: "Pest Management", description: "Deltamethrin EC for stored grain protection against beetles, weevils, and stored-product insects." },
+  { product_name: "K-Obiol® ULV6 20L", product_category: "Stored-Grain", product_segment: "Pest Management", description: "Pyrethrin-based ULV for knockdown of flying insects during grain storage space treatments." },
+  { product_name: "K-Othrine® Flow 25", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Deltamethrin suspension for cockroaches, ants, bedbugs, and crawling insects. Long residual control." },
+  { product_name: "K-Othrine® Partix 240ml", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Deltamethrin with Partix technology. Best for cockroaches on porous and complex surfaces." },
+  { product_name: "K-Othrine® SC 7.5", product_category: "General-Insect-Control", product_segment: "Pest Management", description: "Broad-spectrum deltamethrin SC for cockroaches, flies, and general crawling/flying pest management." },
+  { product_name: "Maxforce® Platin 30g", product_category: "Gel-Bait", product_segment: "Pest Management", description: "Clothianidin BlueBead gel bait specifically for cockroaches. Highly attractive bait matrix." },
+  { product_name: "Maxforce® Quantum 30g", product_category: "Baits", product_segment: "Pest Management", description: "Carbohydrate liquid gel bait specifically formulated for ants. Hygroscopic technology ensures palatability." },
+  { product_name: "Maxforce® White IC", product_category: "Gel-Bait", product_segment: "Pest Management", description: "Imidacloprid crack-and-crevice gel bait for cockroaches indoors." },
+  { product_name: "Racumin® Foam 500ml", product_category: "Rodenticide", product_segment: "Pest Management", description: "Non-bait rodenticide foam that kills rats and mice through grooming. Ideal where bait acceptance is low." },
+  { product_name: "Rodilon® Block 3kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone moisture-resistant block bait for rat and mouse control in challenging environments." },
+  { product_name: "Rodilon® Haver Mix 3kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone mixed grain bait for rodents with high bait acceptance." },
+  { product_name: "Rodilon® Pasta 5kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone soft block for rats and mice across varied infestation scenarios." },
+  { product_name: "Rodilon® Wheat Tech 3kg", product_category: "Rodenticide", product_segment: "Pest Management", description: "Difethialone wheat-tech bait formulation for highly attractive rodent control." },
+  { product_name: "Aqua K-Othrine® EW20 1l", product_category: "Vector-Control", product_segment: "Mosquito Management", description: "PRIMARY MOSQUITO PRODUCT. Deltamethrin EW20 with FFAST technology specifically designed for ULV thermal fogging to kill mosquitoes including Aedes, Anopheles, and Culex species. Use this for any mosquito identification." },
+  { product_name: "K-Othrine® WG250 2.5g", product_category: "Vector-Control", product_segment: "Mosquito Management", description: "Deltamethrin wettable granule for mosquito vector control in public hygiene. Secondary mosquito product." },
 ]);
 
 router.post('/identify-pest', async (req, res) => {
@@ -33,18 +34,20 @@ router.post('/identify-pest', async (req, res) => {
     const { imageBase64 } = req.body;
     if (!imageBase64) return res.status(400).json({ error: "Missing image" });
 
-    const prompt = `You are an expert Envu entomologist AI assistant. 
-Your job is to identify the pest or insect in this image and recommend the most suitable Envu product.
+    const prompt = `You are an expert ENVU entomologist AI assistant. 
+Your job is to identify the pest or insect in this image and recommend the most suitable ENVU product.
 
 ENVU PRODUCT CATALOG:
 ${ENVU_CATALOG}
 
-Instructions:
-1. Look at the image carefully and identify the pest/insect.
-2. Match it to the best product from the catalog above.
-3. Respond ONLY with a valid JSON object. No markdown, no code blocks, no extra text.
-4. Use exactly this format:
-{"insect":"Name of pest","confidence":"95%","threatLevel":"High/Medium/Low - one sentence description","product_name":"Exact product name from catalog","product_description":"Why this product is best for this pest in one sentence."}`;
+STRICT MATCHING RULES:
+1. Identify the pest type: mosquito/fly = "Mosquito Management" segment; cockroach/ant/bedbug/crawling insect = "General-Insect-Control"; rat/mouse/rodent = "Rodenticide"; grain beetle/weevil = "Stored-Grain".
+2. ALWAYS match the product_segment FIRST before anything else.
+3. If the pest is ANY mosquito species (Aedes, Anopheles, Culex, etc.) you MUST pick a product from product_segment="Mosquito Management". Never pick a Pest Management product for mosquitoes.
+4. If a product description says "PRIMARY" for that pest type, always choose it.
+5. Respond ONLY with a valid JSON object. No markdown, no extra text.
+6. Use exactly this format:
+{"insect":"Name of pest","confidence":"95%","threatLevel":"High/Medium/Low - one sentence description","product_name":"Exact product name from catalog","product_category":"Category from catalog","product_segment":"Segment from catalog","product_description":"Why this product is best in one sentence.","product_img":"https://www.1env.com/media/catalog/product/cache/f2593f8f571ff9ce80459766128ddd44/m/a/maxforce-platin-envu-packaging.jpg"}`;
 
     console.log("[AI] Sending image to OpenRouter Vision...");
 
