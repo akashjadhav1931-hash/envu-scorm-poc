@@ -90,6 +90,17 @@ STRICT MATCHING RULES:
     const jsonStr = content.replace(/```json/g, '').replace(/```/g, '').trim();
     const parsed = JSON.parse(jsonStr);
 
+    // Look up exact details from catalog to prevent LLM hallucinations
+    const catalog = JSON.parse(ENVU_CATALOG);
+    const matchedProduct = catalog.find(p => p.product_name === parsed.product_name);
+    
+    if (matchedProduct) {
+      parsed.product_description = matchedProduct.description;
+      parsed.product_category = matchedProduct.product_category;
+      parsed.product_segment = matchedProduct.product_segment;
+      parsed.product_img = matchedProduct.product_img;
+    }
+
     res.json(parsed);
   } catch (error) {
     console.error("[AI Error]", error);

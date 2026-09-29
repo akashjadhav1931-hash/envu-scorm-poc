@@ -66,6 +66,16 @@ const PG_SCHEMA = `
 
   CREATE INDEX IF NOT EXISTS idx_progress_user_course ON scorm_progress(user_id, course_id);
   CREATE INDEX IF NOT EXISTS idx_sessions_user_course ON scorm_sessions(user_id, course_id);
+
+  CREATE TABLE IF NOT EXISTS search_history (
+    id              TEXT    PRIMARY KEY,
+    user_id         TEXT    NOT NULL,
+    query           TEXT    NOT NULL,
+    product         TEXT    NOT NULL,
+    date            TEXT    NOT NULL,
+    created_at      TEXT    NOT NULL
+  );
+  CREATE INDEX IF NOT EXISTS idx_search_history_user ON search_history(user_id);
 `;
 
 const SQLITE_SCHEMA = PG_SCHEMA.replace(/SERIAL PRIMARY KEY/g, 'INTEGER PRIMARY KEY AUTOINCREMENT');

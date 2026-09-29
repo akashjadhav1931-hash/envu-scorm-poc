@@ -10,6 +10,7 @@ const cors    = require('cors');
 const path    = require('path');
 const { initDb, dbWrapper } = require('./db');
 const { router: scormRoutes, setDb } = require('./routes/scorm');
+const { router: historyRoutes, setDb: setHistoryDb } = require('./routes/history');
 const aiRoutes = require('./routes/ai');
 
 const app  = express();
@@ -38,6 +39,7 @@ app.get('/health', (_req, res) => {
 
 app.use('/api/scorm', scormRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/history', historyRoutes);
 
 // Dev utility — dump entire DB
 app.get('/api/scorm/db/all', async (_req, res) => {
@@ -101,6 +103,7 @@ app.use((err, _req, res, _next) => {
 
     // 2. Inject db into routes
     setDb(db);
+    setHistoryDb(db);
 
     // 3. Start Express
     app.listen(PORT, () => {
