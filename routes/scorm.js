@@ -4,6 +4,9 @@
 
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path');
+const fs = require('fs');
+const archiver = require('archiver');
 
 const router = express.Router();
 
@@ -192,6 +195,28 @@ router.get('/debug', async (req, res) => {
   } catch (err) {
     return res.status(500).json({ success: false, error: err.message });
   }
+});
+
+// Download course as ZIP for offline usage
+router.get('/download/:courseId', (req, res) => {
+  const { courseId } = req.params;
+  const coursePath = path.join(__dirname, '../public/courses', courseId);
+
+  if (!fs.existsSync(coursePath)) {
+    return res.status(404).json({ success: false, error: 'Course not found' });
+  }
+
+  res.attachment(`${courseId}.zip`);
+  const archive = archiver('zip', { zlib: { level: 9 } });
+
+  archive.on('error', (err) => {
+    console.error(`[SCORM Download] Error zipping ${courseId}:`, err);
+    res.status(500).send({ error: err.message });
+  });
+
+  archive.pipe(res);
+  archive.directory(coursePath, false);
+  archive.finalize();
 });
 
 module.exports = { router, setDb };
