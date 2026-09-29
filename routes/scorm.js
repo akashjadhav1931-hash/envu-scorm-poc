@@ -6,7 +6,7 @@ const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const fs = require('fs');
-const AdmZip = require('adm-zip');
+const archiver = require('archiver');
 
 const router = express.Router();
 
@@ -206,17 +206,20 @@ router.get('/download/:courseId', (req, res) => {
     return res.status(404).json({ success: false, error: 'Course not found' });
   }
 
-  try {
-    const zip = new AdmZip();
-    zip.addLocalFolder(coursePath);
-    const zipBuffer = zip.toBuffer();
-    
-    res.attachment(`${courseId}.zip`);
-    res.send(zipBuffer);
-  } catch (err) {
+  res.attachment(`${courseId}.zip`);
+  const archive = new archiver.ZipArchive({ zlib: { level: 9 } });
+
+  archive.on('error', (err) => {
     console.error(`[SCORM Download] Error zipping ${courseId}:`, err);
-    res.status(500).send({ error: err.message });
-  }
+    // Don't send 500 if headers already sent
+    if (!res.headersSent) {
+      res.status(500).send({ error: err.message });
+    }
+  });
+
+  archive.pipe(res);
+  archive.directory(coursePath, false);
+  archive.finalize();
 });
 
 module.exports = { router, setDb };
