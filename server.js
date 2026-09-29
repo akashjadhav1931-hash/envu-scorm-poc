@@ -65,7 +65,7 @@ app.get('/api/courses', (_req, res) => {
       icon: 'leaf-outline',
     },
     {
-      id: 'envu-onboarding-2',
+      id: '6ab28a2999831fbc0bd81f32_Progress_static_1_2',
       title: 'Envu Onboarding e-learning',
       duration: '15m',
       passingScore: 100,
@@ -74,7 +74,7 @@ app.get('/api/courses', (_req, res) => {
       icon: 'people-outline',
     },
     {
-      id: 'to-operational-protocols-3',
+      id: '6ab28a6e29c842f5b7c98bc5_Progress_static_1_2',
       title: 'T&O Operational Protocols',
       duration: '45m',
       passingScore: 90,
