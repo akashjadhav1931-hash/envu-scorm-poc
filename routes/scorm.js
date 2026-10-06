@@ -197,6 +197,25 @@ router.get('/debug', async (req, res) => {
   }
 });
 
+// ─── Demo Reset ───────────────────────────────────────────────────────────────
+// DELETE /api/scorm/reset-progress?userId=xxx  — wipes all progress for a user
+router.delete('/reset-progress', async (req, res) => {
+  try {
+    const userId = req.query.userId;
+    if (!userId) return res.status(400).json({ success: false, error: 'userId required' });
+
+    await db.run('DELETE FROM scorm_progress WHERE user_id = ?', [userId]);
+    await db.run('DELETE FROM scorm_sessions WHERE user_id = ?', [userId]);
+    await db.run('DELETE FROM scorm_interactions WHERE user_id = ?', [userId]);
+
+    console.log(`[SCORM] ⚡ Reset ALL progress for user=${userId}`);
+    return res.json({ success: true, message: `All progress reset for user ${userId}` });
+  } catch (err) {
+    console.error('[SCORM] reset-progress error:', err.message);
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // Download course as ZIP for offline usage
 router.get('/download/:courseId', (req, res) => {
   const { courseId } = req.params;
