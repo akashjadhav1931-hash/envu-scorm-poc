@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-const MODEL = 'openrouter/auto'; // Auto-selects best available free vision model
+const MODEL = process.env.OPENROUTER_MODEL || 'meta-llama/llama-3.2-11b-vision-instruct:free';
 
 // Full Envu Catalog for prompt context
 // IMPORTANT: product_segment is the PRIMARY matching key - always prefer it
@@ -78,9 +78,19 @@ STRICT MATCHING RULES:
 
     const aiData = await response.json();
     console.log("[AI] Raw response:", JSON.stringify(aiData));
+    console.log("[AI] HTTP Status:", response.status);
 
     if (!response.ok) {
-      throw new Error(aiData.error?.message || 'OpenRouter API error');
+      const errMsg = aiData.error?.message || '';
+      // Credit exhausted
+      if (response.status === 402 || errMsg.toLowerCase().includes('credit') || errMsg.toLowerCase().includes('balance')) {
+        throw new Error('CREDITS_EXHAUSTED: OpenRouter API credits are used up. Please update the API key.');
+      }
+      // Invalid / expired key
+      if (response.status === 401 || errMsg.toLowerCase().includes('invalid api key') || errMsg.toLowerCase().includes('unauthorized')) {
+        throw new Error('INVALID_KEY: OpenRouter API key is invalid or expired. Please update the API key.');
+      }
+      throw new Error(errMsg || `OpenRouter API error (HTTP ${response.status})`);
     }
 
     const content = aiData.choices?.[0]?.message?.content;
