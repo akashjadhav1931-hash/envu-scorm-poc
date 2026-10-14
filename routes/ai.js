@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-const MODEL = 'google/gemini-2.0-flash-exp:free'; // Free vision model on OpenRouter
+const MODEL = 'openrouter/auto'; // Auto-selects best available free vision model
 
 // Full Envu Catalog for prompt context
 // IMPORTANT: product_segment is the PRIMARY matching key - always prefer it
