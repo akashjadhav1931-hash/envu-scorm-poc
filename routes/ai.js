@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-const MODEL = 'meta-llama/llama-4-scout'; // Free vision model on OpenRouter
+const MODEL = 'google/gemini-2.0-flash-exp:free'; // Free vision model on OpenRouter
 
 // Full Envu Catalog for prompt context
 // IMPORTANT: product_segment is the PRIMARY matching key - always prefer it
