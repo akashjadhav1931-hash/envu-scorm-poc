@@ -1,0 +1,1312 @@
+[
+  {
+    "id": "maxforce-quantum",
+    "name": "Maxforce® Quantum",
+    "category": "Baits",
+    "categoryColor": "#0C2340",
+    "folderName": "Maxforce Quantum",
+    "packshotImageName": "Packshot_Maxforce Quantum1.png",
+    "documents": [
+      {
+        "id": "mq-sds-gr",
+        "type": "SDS",
+        "title": "SDS Maxforce Quantum Greece",
+        "fileName": "SDS Maxforce Quantum_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "556 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Quantum/SDS Maxforce Quantum_Greece.pdf"
+      },
+      {
+        "id": "mq-sds-hu",
+        "type": "SDS",
+        "title": "SDS Maxforce Quantum Hungary",
+        "fileName": "SDS Maxforce Quantum_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "348 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Quantum/SDS Maxforce Quantum_HUN.pdf"
+      },
+      {
+        "id": "mq-sds-pl",
+        "type": "SDS",
+        "title": "SDS Maxforce Quantum Poland",
+        "fileName": "SDS Maxforce Quantum_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "533 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Quantum/SDS Maxforce Quantum_Poland.pdf"
+      },
+      {
+        "id": "mq-sds-ro",
+        "type": "SDS",
+        "title": "SDS Maxforce Quantum Romania",
+        "fileName": "SDS Maxforce Quantum_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "534 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Quantum/SDS Maxforce Quantum_RO.pdf"
+      },
+      {
+        "id": "mq-lbl-gr",
+        "type": "LABEL",
+        "title": "Label Maxforce Quantum Greece",
+        "fileName": "Label Maxforce Quantum_GRC.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "761 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Quantum/Label Maxforce Quantum_GRC.pdf"
+      },
+      {
+        "id": "mq-lbl-pl",
+        "type": "LABEL",
+        "title": "Label Maxforce Quantum Poland",
+        "fileName": "Label Maxforce Quantum_PL.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "1.09 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Quantum/Label Maxforce Quantum_PL.pdf"
+      },
+      {
+        "id": "mq-lbl-ro",
+        "type": "LABEL",
+        "title": "Label Maxforce Quantum Romania",
+        "fileName": "Label Maxforce Quantum_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "2.0 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Quantum/Label Maxforce Quantum_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "maxforce-platin",
+    "name": "Maxforce® Platin",
+    "category": "Baits",
+    "categoryColor": "#0C2340",
+    "folderName": "Maxforce Platin",
+    "packshotImageName": "Packshot_Maxforce Platin.png",
+    "documents": [
+      {
+        "id": "mp-sds-hu",
+        "type": "SDS",
+        "title": "SDS Maxforce Platin Hungary",
+        "fileName": "SDS Maxforce Platin_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "664 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Platin/SDS Maxforce Platin_HUN.pdf"
+      },
+      {
+        "id": "mp-sds-pl",
+        "type": "SDS",
+        "title": "SDS Maxforce Platin Poland",
+        "fileName": "SDS Maxforce Platin_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "671 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Platin/SDS Maxforce Platin_Poland.pdf"
+      },
+      {
+        "id": "mp-sds-ro",
+        "type": "SDS",
+        "title": "SDS Maxforce Platin Romania",
+        "fileName": "SDS Maxforce Platin_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "663 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Platin/SDS Maxforce Platin_RO.pdf"
+      },
+      {
+        "id": "mp-sds-ua",
+        "type": "SDS",
+        "title": "SDS Maxforce Platin Ukraine",
+        "fileName": "SDS Maxforce Platin_UKR.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "716 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Platin/SDS Maxforce Platin_UKR.pdf"
+      },
+      {
+        "id": "mp-lbl-pl",
+        "type": "LABEL",
+        "title": "Label Maxforce Platin Poland",
+        "fileName": "Label Maxforce Platin_PL.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "1.23 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Platin/Label Maxforce Platin_PL.pdf"
+      },
+      {
+        "id": "mp-lbl-ro-hu",
+        "type": "LABEL",
+        "title": "Label Maxforce Platin RO & HU",
+        "fileName": "Label Maxforce Platin_RO_HUN.pdf",
+        "language": "RO / HU",
+        "country": "Romania / Hungary",
+        "countryFlag": "🇪🇺",
+        "fileSize": "1.06 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Platin/Label Maxforce Platin_RO_HUN.pdf"
+      },
+      {
+        "id": "mp-lbl-ua",
+        "type": "LABEL",
+        "title": "Label Maxforce Platin Ukraine",
+        "fileName": "Label Maxforce Platin_UA.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "539 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Platin/Label Maxforce Platin_UA.pdf"
+      }
+    ]
+  },
+  {
+    "id": "maxforce-prime",
+    "name": "Maxforce® Prime",
+    "category": "Baits",
+    "categoryColor": "#0C2340",
+    "folderName": "Maxforce Prime",
+    "packshotImageName": "Packshot Maxforce Prime.jpg",
+    "documents": [
+      {
+        "id": "mpr-sds-hu",
+        "type": "SDS",
+        "title": "SDS Maxforce Prime Hungary",
+        "fileName": "SDS Maxforce Prime_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "630 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Prime/SDS Maxforce Prime_HUN.pdf"
+      },
+      {
+        "id": "mpr-sds-pl",
+        "type": "SDS",
+        "title": "SDS Maxforce Prime Poland",
+        "fileName": "SDS Maxforce Prime_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "674 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Prime/SDS Maxforce Prime_Poland.pdf"
+      },
+      {
+        "id": "mpr-sds-ro",
+        "type": "SDS",
+        "title": "SDS Maxforce Prime Romania",
+        "fileName": "SDS Maxforce Prime_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "625 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Prime/SDS Maxforce Prime_RO.pdf"
+      },
+      {
+        "id": "mpr-lbl-pl",
+        "type": "LABEL",
+        "title": "Label Maxforce Prime Poland",
+        "fileName": "Label Maxforce Prime_PL.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "1.16 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce Prime/Label Maxforce Prime_PL.pdf"
+      }
+    ]
+  },
+  {
+    "id": "maxforce-white-ic",
+    "name": "Maxforce® White IC",
+    "category": "Baits",
+    "categoryColor": "#0C2340",
+    "folderName": "Maxforce White IC",
+    "packshotImageName": "Packshot Maxforce White IC 2.png",
+    "documents": [
+      {
+        "id": "mw-sds-gr",
+        "type": "SDS",
+        "title": "SDS Maxforce White IC Greece",
+        "fileName": "SDS Maxforce White IC_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "660 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce White IC/SDS Maxforce White IC_Greece.pdf"
+      },
+      {
+        "id": "mw-sds-hu",
+        "type": "SDS",
+        "title": "SDS Maxforce White IC Hungary",
+        "fileName": "SDS Maxforce White IC_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "613 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce White IC/SDS Maxforce White IC_HUN.pdf"
+      },
+      {
+        "id": "mw-sds-pl",
+        "type": "SDS",
+        "title": "SDS Maxforce White IC Poland",
+        "fileName": "SDS Maxforce White IC_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "629 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce White IC/SDS Maxforce White IC_Poland.pdf"
+      },
+      {
+        "id": "mw-sds-ro",
+        "type": "SDS",
+        "title": "SDS Maxforce White IC Romania",
+        "fileName": "SDS Maxforce White IC_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "611 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce White IC/SDS Maxforce White IC_RO.pdf"
+      },
+      {
+        "id": "mw-sds-ua",
+        "type": "SDS",
+        "title": "SDS Maxforce White IC Ukraine",
+        "fileName": "SDS Maxforce White IC_UKR.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "576 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce White IC/SDS Maxforce White IC_UKR.pdf"
+      },
+      {
+        "id": "mw-lbl-multi",
+        "type": "LABEL",
+        "title": "Label Maxforce White IC RO/HUN/PL",
+        "fileName": "Label Maxforce White IC_RO_HUN_PL.pdf",
+        "language": "Multi",
+        "country": "RO/HU/PL",
+        "countryFlag": "🇪🇺",
+        "fileSize": "1.64 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce White IC/Label Maxforce White IC_RO_HUN_PL.pdf"
+      },
+      {
+        "id": "mw-lbl-ua",
+        "type": "LABEL",
+        "title": "Label Maxforce White IC Ukraine",
+        "fileName": "Label Maxforce White IC_UA.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "889 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Maxforce White IC/Label Maxforce White IC_UA.pdf"
+      }
+    ]
+  },
+  {
+    "id": "k-othrine-partix",
+    "name": "K-Othrine® Partix",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "K-Othrine Partix",
+    "packshotImageName": "Packshot_K-Othrine Partix1.png",
+    "documents": [
+      {
+        "id": "kp-sds-gr",
+        "type": "SDS",
+        "title": "SDS K-Othrine Partix Greece",
+        "fileName": "SDS K-Othrine Partix_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "670 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/SDS K-Othrine Partix_Greece.pdf"
+      },
+      {
+        "id": "kp-sds-hu",
+        "type": "SDS",
+        "title": "SDS K-Othrine Partix Hungary",
+        "fileName": "SDS K-Othrine Partix_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "458 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/SDS K-Othrine Partix_HUN.pdf"
+      },
+      {
+        "id": "kp-sds-pl",
+        "type": "SDS",
+        "title": "SDS K-Othrine Partix Poland",
+        "fileName": "SDS K-Othrine Partix_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "668 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/SDS K-Othrine Partix_Poland.pdf"
+      },
+      {
+        "id": "kp-sds-ro",
+        "type": "SDS",
+        "title": "SDS K-Othrine Partix Romania",
+        "fileName": "SDS K-Othrine Partix_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "632 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/SDS K-Othrine Partix_RO.pdf"
+      },
+      {
+        "id": "kp-lbl-gr",
+        "type": "LABEL",
+        "title": "Label K-Othrine Partix Greece",
+        "fileName": "Label K-Othrine Partix_GRC.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "443 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/Label K-Othrine Partix_GRC.pdf"
+      },
+      {
+        "id": "kp-lbl-hu",
+        "type": "LABEL",
+        "title": "Label K-Othrine Partix Hungary",
+        "fileName": "Label K-Othrine Partix_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "637 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/Label K-Othrine Partix_HUN.pdf"
+      },
+      {
+        "id": "kp-lbl-pl",
+        "type": "LABEL",
+        "title": "Label K-Othrine Partix Poland",
+        "fileName": "Label K-Othrine Partix_PL.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "868 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/Label K-Othrine Partix_PL.pdf"
+      },
+      {
+        "id": "kp-lbl-ro",
+        "type": "LABEL",
+        "title": "Label K-Othrine Partix Romania",
+        "fileName": "Label K-Othrine Partix_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "975 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine Partix/Label K-Othrine Partix_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "k-othrine-sc25",
+    "name": "K-Othrine® SC 25",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "K-Othrine SC25",
+    "packshotImageName": "Packshot K-Othrine SC25.png",
+    "documents": [
+      {
+        "id": "ksc25-sds-gr",
+        "type": "SDS",
+        "title": "SDS K-Othrine SC25 Greece",
+        "fileName": "SDS K-Othrine SC25_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "669 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/SDS K-Othrine SC25_Greece.pdf"
+      },
+      {
+        "id": "ksc25-sds-hu",
+        "type": "SDS",
+        "title": "SDS K-Othrine SC25 Hungary",
+        "fileName": "SDS K-Othrine SC25_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "626 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/SDS K-Othrine SC25_HUN.pdf"
+      },
+      {
+        "id": "ksc25-sds-pl",
+        "type": "SDS",
+        "title": "SDS K-Othrine 2.5 Flow Poland",
+        "fileName": "SDS K-Othrine 2.5 Flow_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "659 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/SDS K-Othrine 2.5 Flow_Poland.pdf"
+      },
+      {
+        "id": "ksc25-sds-ro",
+        "type": "SDS",
+        "title": "SDS K-Othrine SC25 Romania",
+        "fileName": "SDS K-Othrine SC25_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "638 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/SDS K-Othrine SC25_RO.pdf"
+      },
+      {
+        "id": "ksc25-lbl-pl",
+        "type": "LABEL",
+        "title": "Label K-Othrine 2.5 Flow Poland",
+        "fileName": "Label K-Othrine 2.5 Flow_PL.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "736 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/Label K-Othrine 2.5 Flow_PL.pdf"
+      },
+      {
+        "id": "ksc25-lbl-gr",
+        "type": "LABEL",
+        "title": "Label K-Othrine SC25 Greece",
+        "fileName": "Label K-Othrine SC25_GRC.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "2.5 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/Label K-Othrine SC25_GRC.pdf"
+      },
+      {
+        "id": "ksc25-lbl-hu",
+        "type": "LABEL",
+        "title": "Label K-Othrine SC25 Hungary",
+        "fileName": "Label K-Othrine SC25_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "2.1 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/Label K-Othrine SC25_HUN.pdf"
+      },
+      {
+        "id": "ksc25-lbl-ro",
+        "type": "LABEL",
+        "title": "Label K-Othrine SC25 Romania",
+        "fileName": "Label K-Othrine SC25_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "1.24 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC25/Label K-Othrine SC25_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "k-othrine-sc75",
+    "name": "K-Othrine® SC 7.5",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "K-Othrine SC 7.5",
+    "packshotImageName": "K-Othrine SC7.5.png",
+    "documents": [
+      {
+        "id": "ksc75-sds-ro",
+        "type": "SDS",
+        "title": "SDS K-Othrine 7.5 Romania",
+        "fileName": "SDS K-Othrine 7.5_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "640 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC 7.5/SDS K-Othrine 7.5_RO.pdf"
+      },
+      {
+        "id": "ksc75-lbl-ro",
+        "type": "LABEL",
+        "title": "Label K-Othrine SC7.5 Romania",
+        "fileName": "Label K-Othrine SC7.5_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "1.6 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC 7.5/Label K-Othrine SC7.5_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "k-othrine-sc50",
+    "name": "K-Othrine® SC 50",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "K-Othrine SC50",
+    "packshotImageName": "Packshot K-Othrine SC50.png",
+    "documents": [
+      {
+        "id": "ksc50-sds-ua",
+        "type": "SDS",
+        "title": "SDS K-Othrine SC50 Ukraine",
+        "fileName": "SDS K-Othrine SC50_UKR.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "601 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC50/SDS K-Othrine SC50_UKR.pdf"
+      },
+      {
+        "id": "ksc50-lbl-ua",
+        "type": "LABEL",
+        "title": "Label K-Othrine SC50 Ukraine",
+        "fileName": "Label K-Othrine SC50_UA.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "717 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine SC50/Label K-Othrine SC50_UA.pdf"
+      }
+    ]
+  },
+  {
+    "id": "k-othrine-wg250",
+    "name": "K-Othrine® WG 250",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "K-Othrine WG250",
+    "packshotImageName": "K-Othrine WG250.png",
+    "documents": [
+      {
+        "id": "kwg-sds-gr",
+        "type": "SDS",
+        "title": "SDS K-Othrine WG250 Greece",
+        "fileName": "SDS K-Othrine WG250_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "509 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine WG250/SDS K-Othrine WG250_Greece.pdf"
+      },
+      {
+        "id": "kwg-sds-ro",
+        "type": "SDS",
+        "title": "SDS K-Othrine WG25 Romania",
+        "fileName": "SDS K-Othrine WG25_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "633 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine WG250/SDS K-Othrine WG25_RO.pdf"
+      },
+      {
+        "id": "kwg-lbl-gr",
+        "type": "LABEL",
+        "title": "Label K-Othrine WG250 Greece",
+        "fileName": "Label K-Othrine WG250_GRC.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "647 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine WG250/Label K-Othrine WG250_GRC.pdf"
+      },
+      {
+        "id": "kwg-lbl-ro",
+        "type": "LABEL",
+        "title": "Label K-Othrine WG250 Romania",
+        "fileName": "Label K-Othrine WG250_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "568 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Othrine WG250/Label K-Othrine WG250_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "aquapy",
+    "name": "AquaPy®",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "AquaPy",
+    "packshotImageName": "Packshot_AquaPy.png",
+    "documents": [
+      {
+        "id": "aqp-sds-hu",
+        "type": "SDS",
+        "title": "SDS AquaPy Hungary",
+        "fileName": "SDS AquaPy_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "564 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/AquaPy/SDS AquaPy_HUN.pdf"
+      },
+      {
+        "id": "aqp-sds-pl",
+        "type": "SDS",
+        "title": "SDS AquaPy Poland",
+        "fileName": "SDS AquaPy_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "751 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/AquaPy/SDS AquaPy_Poland.pdf"
+      },
+      {
+        "id": "aqp-sds-ro",
+        "type": "SDS",
+        "title": "SDS AquaPy Romania",
+        "fileName": "SDS AquaPy_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "731 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/AquaPy/SDS AquaPy_RO.pdf"
+      },
+      {
+        "id": "aqp-lbl-multi",
+        "type": "LABEL",
+        "title": "Label AquaPy RO / HUN / PL",
+        "fileName": "Label AquaPy_RO_HUN_PL.pdf",
+        "language": "Multi",
+        "country": "RO/HU/PL",
+        "countryFlag": "🇪🇺",
+        "fileSize": "3.47 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/AquaPy/Label AquaPy_RO_HUN_PL.pdf"
+      }
+    ]
+  },
+  {
+    "id": "aqua-k-othrine",
+    "name": "Aqua K-Othrine®",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "Aqua K-Othrine MISSING",
+    "packshotImageName": "Packshot_Aqua K-Othrine.png",
+    "documents": [
+      {
+        "id": "ako-sds-gr",
+        "type": "SDS",
+        "title": "SDS Aqua K-Othrine Greece",
+        "fileName": "SDB Aqua K-Othrine_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "675 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Aqua K-Othrine MISSING/SDB Aqua K-Othrine_Greece.pdf"
+      },
+      {
+        "id": "ako-sds-pl",
+        "type": "SDS",
+        "title": "SDS Aqua K-Othrine Poland",
+        "fileName": "SDB Aqua K-Othrine_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "664 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Aqua K-Othrine MISSING/SDB Aqua K-Othrine_Poland.pdf"
+      },
+      {
+        "id": "ako-sds-ro",
+        "type": "SDS",
+        "title": "SDS Aqua K-Othrine Romania",
+        "fileName": "SDB Aqua K-Othrine_Romania.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "665 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Aqua K-Othrine MISSING/SDB Aqua K-Othrine_Romania.pdf"
+      }
+    ]
+  },
+  {
+    "id": "quick-bait-wg10",
+    "name": "Quick Bait® WG 10",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "Quick Bait WG10",
+    "packshotImageName": "Quick Bait WG10.png",
+    "documents": [
+      {
+        "id": "qb-sds-ro",
+        "type": "SDS",
+        "title": "SDS Quick Bait WG10 Romania",
+        "fileName": "SDS Quick Bait WG10_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "561 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Quick Bait WG10/SDS Quick Bait WG10_RO.pdf"
+      },
+      {
+        "id": "qb-sds-ua",
+        "type": "SDS",
+        "title": "SDS Quick Bait WG10 Ukraine",
+        "fileName": "SDS Quick Bait WG10_UKR.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "553 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Quick Bait WG10/SDS Quick Bait WG10_UKR.pdf"
+      },
+      {
+        "id": "qb-lbl-ro",
+        "type": "LABEL",
+        "title": "Label Quick Bait WG10 Romania",
+        "fileName": "Label Quick Bait WG10_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "1.32 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Quick Bait WG10/Label Quick Bait WG10_RO.pdf"
+      },
+      {
+        "id": "qb-lbl-ua",
+        "type": "LABEL",
+        "title": "Label Quick Bait WG10 Ukraine",
+        "fileName": "Label Quick Bait WG10_UA.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "1.16 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Quick Bait WG10/Label Quick Bait WG10_UA.pdf"
+      }
+    ]
+  },
+  {
+    "id": "solfac-automatic-forte",
+    "name": "Solfac® Automatic Forte",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "Solfac Automatc Forte",
+    "packshotImageName": "Packshot_Solfac Automatic Forte.png",
+    "documents": [
+      {
+        "id": "saf-sds-gr",
+        "type": "SDS",
+        "title": "SDS Solfac Automatic Forte Greece",
+        "fileName": "SDS Solfac Automatic Forte_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "646 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Automatc Forte/SDS Solfac Automatic Forte_Greece.pdf"
+      },
+      {
+        "id": "saf-sds-ro",
+        "type": "SDS",
+        "title": "SDS Solfac Automatic Forte Romania",
+        "fileName": "SDS Solfac Automatic Forte_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "625 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Automatc Forte/SDS Solfac Automatic Forte_RO.pdf"
+      },
+      {
+        "id": "saf-lbl-gr",
+        "type": "LABEL",
+        "title": "Label Solfac Automatic Forte Greece",
+        "fileName": "Label Solfac Automatic Forte_GRC.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "548 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Automatc Forte/Label Solfac Automatic Forte_GRC.pdf"
+      },
+      {
+        "id": "saf-lbl-ro",
+        "type": "LABEL",
+        "title": "Label Solfac Automatic Forte Romania",
+        "fileName": "Label Solfac Automatic Forte_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "4.82 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Automatc Forte/Label Solfac Automatic Forte_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "solfac-combi-maxx",
+    "name": "Solfac® Combi Maxx",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "Solfac Combi Maxx",
+    "packshotImageName": "Packshot  Solfac Combi Maxx.png",
+    "documents": [
+      {
+        "id": "scm-sds-ro",
+        "type": "SDS",
+        "title": "SDS Solfac Combi Maxx Romania",
+        "fileName": "SDS Solfac Combi Maxx_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "619 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Combi Maxx/SDS Solfac Combi Maxx_RO.pdf"
+      },
+      {
+        "id": "scm-lbl-ro",
+        "type": "LABEL",
+        "title": "Label Solfac Combi Maxx Romania",
+        "fileName": "Label Solfac Combi Maxx_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "837 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Combi Maxx/Label Solfac Combi Maxx_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "solfac-ew50",
+    "name": "Solfac® EW 50",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "Solfac EW50",
+    "packshotImageName": "Packshot Solfac EW50.png",
+    "documents": [
+      {
+        "id": "sew-sds-ua",
+        "type": "SDS",
+        "title": "SDS Solfac EW50 Ukraine",
+        "fileName": "SDS Solfac EW50_UKR.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "616 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac EW50/SDS Solfac EW50_UKR.pdf"
+      },
+      {
+        "id": "sew-lbl-ua",
+        "type": "LABEL",
+        "title": "Label Solfac EW50 Ukraine",
+        "fileName": "Label Solfac EW50_UA.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "1.53 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac EW50/Label Solfac EW50_UA.pdf"
+      }
+    ]
+  },
+  {
+    "id": "solfac-trio",
+    "name": "Solfac® Trio",
+    "category": "General-Insect-Control",
+    "categoryColor": "#0091DF",
+    "folderName": "Solfac Trio",
+    "packshotImageName": "Packshot_Solfac Trio.png",
+    "documents": [
+      {
+        "id": "st-sds-ro",
+        "type": "SDS",
+        "title": "SDS Solfac Trio Romania",
+        "fileName": "SDS Solfac Trio_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "683 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Trio/SDS Solfac Trio_RO.pdf"
+      },
+      {
+        "id": "st-lbl-ro",
+        "type": "LABEL",
+        "title": "Label Solfac Trio Romania",
+        "fileName": "Label Solfac Trio_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "644 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Solfac Trio/Label Solfac Trio_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "harmonix-rodent-paste",
+    "name": "Harmonix® Rodent Paste",
+    "category": "Rodenticide",
+    "categoryColor": "#624963",
+    "folderName": "Harmonix Rodent Paste",
+    "packshotImageName": "Packshot Harmonix Rodent Paste.png",
+    "documents": [
+      {
+        "id": "hrp-sds-hu",
+        "type": "SDS",
+        "title": "SDS Harmonix Rodent Paste Hungary",
+        "fileName": "SDS Harmonix Rodent Paste_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "526 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Harmonix Rodent Paste/SDS Harmonix Rodent Paste_HUN.pdf"
+      },
+      {
+        "id": "hrp-sds-pl",
+        "type": "SDS",
+        "title": "SDS Harmonix Rodent Paste Poland",
+        "fileName": "SDS Harmonix Rodent Paste_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "539 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Harmonix Rodent Paste/SDS Harmonix Rodent Paste_Poland.pdf"
+      },
+      {
+        "id": "hrp-sds-ro",
+        "type": "SDS",
+        "title": "SDS Harmonix Rodent Paste Romania",
+        "fileName": "SDS Harmonix Rodent Paste_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "532 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Harmonix Rodent Paste/SDS Harmonix Rodent Paste_RO.pdf"
+      },
+      {
+        "id": "hrp-lbl-hu",
+        "type": "LABEL",
+        "title": "Label Harmonix Rodent Paste Hungary",
+        "fileName": "Label Harmonix Rodent Paste_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "2.69 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Harmonix Rodent Paste/Label Harmonix Rodent Paste_HUN.pdf"
+      },
+      {
+        "id": "hrp-lbl-pl-ro",
+        "type": "LABEL",
+        "title": "Label Harmonix Rodent Paste PL & RO",
+        "fileName": "Label Harmonix Rodent Paste_PL_RO.pdf",
+        "language": "PL / RO",
+        "country": "Poland / Romania",
+        "countryFlag": "🇪🇺",
+        "fileSize": "2.17 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Harmonix Rodent Paste/Label Harmonix Rodent Paste_PL_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "racumin-foam",
+    "name": "Racumin® Foam",
+    "category": "Rodenticide",
+    "categoryColor": "#624963",
+    "folderName": "Racumin Foam",
+    "packshotImageName": "Packshot Racumin Foam.png",
+    "documents": [
+      {
+        "id": "rf-sds-gr",
+        "type": "SDS",
+        "title": "SDS Racumin Foam Greece",
+        "fileName": "SDS Racumin Foam_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "589 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Foam/SDS Racumin Foam_Greece.pdf"
+      },
+      {
+        "id": "rf-sds-hu",
+        "type": "SDS",
+        "title": "SDS Racumin Foam Hungary",
+        "fileName": "SDS Racumin Foam_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "586 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Foam/SDS Racumin Foam_HUN.pdf"
+      },
+      {
+        "id": "rf-sds-pl",
+        "type": "SDS",
+        "title": "SDS Racumin Foam Poland",
+        "fileName": "SDS Racumin Foam_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "588 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Foam/SDS Racumin Foam_Poland.pdf"
+      },
+      {
+        "id": "rf-sds-ro",
+        "type": "SDS",
+        "title": "SDS Racumin Foam Romania",
+        "fileName": "SDS Racumin Foam_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "610 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Foam/SDS Racumin Foam_RO.pdf"
+      },
+      {
+        "id": "rf-lbl-gr",
+        "type": "LABEL",
+        "title": "Label Racumin Foam Greece",
+        "fileName": "Label Racumin Foam_GRC.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "1.1 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Foam/Label Racumin Foam_GRC.pdf"
+      },
+      {
+        "id": "rf-lbl-multi",
+        "type": "LABEL",
+        "title": "Label Racumin Foam RO / HUN / PL",
+        "fileName": "Label Racumin Foam_RO_HUN_PL.pdf",
+        "language": "Multi",
+        "country": "RO/HU/PL",
+        "countryFlag": "🇪🇺",
+        "fileSize": "5.36 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Foam/Label Racumin Foam_RO_HUN_PL.pdf"
+      }
+    ]
+  },
+  {
+    "id": "racumin-expert",
+    "name": "Racumin® Expert",
+    "category": "Rodenticide",
+    "categoryColor": "#624963",
+    "folderName": "Racumin Expert",
+    "packshotImageName": "Packshot Racumin Expert.png",
+    "documents": [
+      {
+        "id": "re-sds-pl",
+        "type": "SDS",
+        "title": "SDS Racumin Expert Poland",
+        "fileName": "SDS Racumin Expert_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "529 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Expert/SDS Racumin Expert_Poland.pdf"
+      },
+      {
+        "id": "re-sds-ro",
+        "type": "SDS",
+        "title": "SDS Racumin Expert Romania",
+        "fileName": "SDS Racumin Expert_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "520 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Expert/SDS Racumin Expert_RO.pdf"
+      },
+      {
+        "id": "re-lbl-pl-ro",
+        "type": "LABEL",
+        "title": "Label Racumin Expert PL & RO",
+        "fileName": "Label Racumin Expert_PL_RO.pdf",
+        "language": "PL / RO",
+        "country": "Poland / Romania",
+        "countryFlag": "🇪🇺",
+        "fileSize": "2.44 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/Racumin Expert/Label Racumin Expert_PL_RO.pdf"
+      }
+    ]
+  },
+  {
+    "id": "k-obiol-ec25",
+    "name": "K-Obiol® EC 25",
+    "category": "Stored-Grain",
+    "categoryColor": "#D30F4B",
+    "folderName": "K-Obiol EC25",
+    "packshotImageName": "Packshot_K-ObiolEC25.png",
+    "documents": [
+      {
+        "id": "ko-ec25-sds-gr",
+        "type": "SDS",
+        "title": "SDS K-Obiol EC25 Greece",
+        "fileName": "SDS K-Obiol EC25_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "844 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/SDS K-Obiol EC25_Greece.pdf"
+      },
+      {
+        "id": "ko-ec25-sds-hu",
+        "type": "SDS",
+        "title": "SDS K-Obiol EC250 Hungary",
+        "fileName": "SDS K-Obiol EC250_HUN.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "758 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/SDS K-Obiol EC250_HUN.pdf"
+      },
+      {
+        "id": "ko-ec25-sds-ro",
+        "type": "SDS",
+        "title": "SDS K-Obiol EC25 Romania",
+        "fileName": "SDS K-Obiol EC25_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "753 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/SDS K-Obiol EC25_RO.pdf"
+      },
+      {
+        "id": "ko-ec25-sds-ua",
+        "type": "SDS",
+        "title": "SDS K-Obiol EC25 Ukraine",
+        "fileName": "SDS K-Obiol EC25_UKR.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "814 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/SDS K-Obiol EC25_UKR.pdf"
+      },
+      {
+        "id": "ko-max-sds-pl",
+        "type": "SDS",
+        "title": "SDS K-Obiol Max Poland",
+        "fileName": "SDS K-Obiol Max_Poland.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "790 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/SDS K-Obiol Max_Poland.pdf"
+      },
+      {
+        "id": "ko-ec25-lbl-gr",
+        "type": "LABEL",
+        "title": "Label K-Obiol EC25 Greece",
+        "fileName": "Label K-Obiol EC25_GR.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "7.72 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/Label K-Obiol EC25_GR.pdf"
+      },
+      {
+        "id": "ko-ec25-lbl-hu",
+        "type": "LABEL",
+        "title": "Label K-Obiol EC25 Hungary",
+        "fileName": "Label K-Obiol EC25_HU.pdf",
+        "language": "Hungarian",
+        "country": "Hungary",
+        "countryFlag": "🇭🇺",
+        "fileSize": "3.63 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/Label K-Obiol EC25_HU.pdf"
+      },
+      {
+        "id": "ko-ec25-lbl-ro",
+        "type": "LABEL",
+        "title": "Label K-Obiol EC25 Romania",
+        "fileName": "Label K-Obiol EC25_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "2.45 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/Label K-Obiol EC25_RO.pdf"
+      },
+      {
+        "id": "ko-ec25-lbl-ua",
+        "type": "LABEL",
+        "title": "Label K-Obiol EC25 Ukraine",
+        "fileName": "Label K-Obiol EC25_UA.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "5.01 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/Label K-Obiol EC25_UA.pdf"
+      },
+      {
+        "id": "ko-max-lbl-pl",
+        "type": "LABEL",
+        "title": "Label K-Obiol Max Poland",
+        "fileName": "Label K-Obiol Max_PL.pdf",
+        "language": "Polish",
+        "country": "Poland",
+        "countryFlag": "🇵🇱",
+        "fileSize": "9.32 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol EC25/Label K-Obiol Max_PL.pdf"
+      }
+    ]
+  },
+  {
+    "id": "k-obiol-ulv6",
+    "name": "K-Obiol® ULV 6",
+    "category": "Stored-Grain",
+    "categoryColor": "#D30F4B",
+    "folderName": "K-Obiol ULV6",
+    "packshotImageName": "Packshot K-ObiolULV6_2.png",
+    "documents": [
+      {
+        "id": "ko-ulv6-sds-gr",
+        "type": "SDS",
+        "title": "SDS K-Obiol ULV6 Greece",
+        "fileName": "SDS K-Obiol UL60_Greece.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "491 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol ULV6/SDS K-Obiol UL60_Greece.pdf"
+      },
+      {
+        "id": "ko-ulv6-sds-ro",
+        "type": "SDS",
+        "title": "SDS K-Obiol ULV6 Romania",
+        "fileName": "SDS K-Obiol ULV6_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "594 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol ULV6/SDS K-Obiol ULV6_RO.pdf"
+      },
+      {
+        "id": "ko-ulv6-sds-ua",
+        "type": "SDS",
+        "title": "SDS K-Obiol ULV6 Ukraine",
+        "fileName": "SDS K-Obiol ULV6_UKR.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "557 KB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol ULV6/SDS K-Obiol ULV6_UKR.pdf"
+      },
+      {
+        "id": "ko-ulv6-lbl-gr",
+        "type": "LABEL",
+        "title": "Label K-Obiol ULV6 Greece",
+        "fileName": "Label K-Obiol ULV6_GRC.pdf",
+        "language": "Greek",
+        "country": "Greece",
+        "countryFlag": "🇬🇷",
+        "fileSize": "5.10 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol ULV6/Label K-Obiol ULV6_GRC.pdf"
+      },
+      {
+        "id": "ko-ulv6-lbl-ro",
+        "type": "LABEL",
+        "title": "Label K-Obiol ULV6 Romania",
+        "fileName": "Label K-Obiol ULV6_RO.pdf",
+        "language": "Romanian",
+        "country": "Romania",
+        "countryFlag": "🇷🇴",
+        "fileSize": "5.06 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol ULV6/Label K-Obiol ULV6_RO.pdf"
+      },
+      {
+        "id": "ko-ulv6-lbl-ua",
+        "type": "LABEL",
+        "title": "Label K-Obiol ULV6 Ukraine",
+        "fileName": "Label K-Obiol ULV6_UA.pdf",
+        "language": "Ukrainian",
+        "country": "Ukraine",
+        "countryFlag": "🇺🇦",
+        "fileSize": "5.08 MB",
+        "relativeAssetPath": "assets/Product Repo_CER Website/K-Obiol ULV6/Label K-Obiol ULV6_UA.pdf"
+      }
+    ]
+  }
+]
