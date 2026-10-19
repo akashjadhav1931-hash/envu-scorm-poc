@@ -19,11 +19,22 @@ try {
 
 // Flat map for quick document lookups by ID
 const docMap = new Map();
-const ASSET_BASE_DIR = path.resolve(__dirname, '../../assets/Product Repo_CER Website');
+
+function resolveDocDiskPath(folderName, fileName) {
+  // 1. Check inside backend/public/documents/ (for Render cloud container deployment)
+  const inPublic = path.join(__dirname, '../public/documents', folderName, fileName);
+  if (fs.existsSync(inPublic)) return inPublic;
+
+  // 2. Check in root assets/ folder (for local repo development)
+  const inAssets = path.resolve(__dirname, '../../assets/Product Repo_CER Website', folderName, fileName);
+  if (fs.existsSync(inAssets)) return inAssets;
+
+  return inPublic;
+}
 
 for (const product of rawProducts) {
   for (const doc of product.documents) {
-    const fullDiskPath = path.join(ASSET_BASE_DIR, product.folderName, doc.fileName);
+    const fullDiskPath = resolveDocDiskPath(product.folderName, doc.fileName);
     docMap.set(doc.id, {
       ...doc,
       productId: product.id,
