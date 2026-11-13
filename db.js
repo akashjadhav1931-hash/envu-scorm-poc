@@ -76,6 +76,17 @@ const PG_SCHEMA = `
     created_at      TEXT    NOT NULL
   );
   CREATE INDEX IF NOT EXISTS idx_search_history_user ON search_history(user_id);
+
+  -- i18n: one row per (key, lang). Example:
+  --   key='course.genially-course-1.title', lang='es', value='Protocolo K-Obiol y Actellic'
+  CREATE TABLE IF NOT EXISTS translations (
+    key          TEXT NOT NULL,
+    lang         TEXT NOT NULL,
+    value        TEXT NOT NULL,
+    updated_at   TEXT NOT NULL,
+    PRIMARY KEY (key, lang)
+  );
+  CREATE INDEX IF NOT EXISTS idx_translations_lang ON translations(lang);
 `;
 
 const SQLITE_SCHEMA = PG_SCHEMA.replace(/SERIAL PRIMARY KEY/g, 'INTEGER PRIMARY KEY AUTOINCREMENT');

@@ -4,6 +4,17 @@ const router = express.Router();
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const MODEL = "meta-llama/llama-4-scout"; // Free vision model on OpenRouter
 
+// ─── i18n ────────────────────────────────────────────────────────────────────
+// The DB-backed i18n module is injected from server.js via setI18n().
+// Keys used here:
+//   ai.instruction                      → prompt language instruction
+//   product.<product_name>.description  → localized product description
+let i18n = null;
+function setI18n(mod) { i18n = mod; }
+function normalizeLang(raw) {
+  return i18n ? i18n.normalizeLang(raw) : "en";
+}
+
 // Full Envu Catalog for prompt context
 // IMPORTANT: product_segment is the PRIMARY matching key - always prefer it
 const ENVU_CATALOG = JSON.stringify([
@@ -245,6 +256,9 @@ router.post("/identify-pest", async (req, res) => {
     const { imageBase64 } = req.body;
     if (!imageBase64) return res.status(400).json({ error: "Missing image" });
 
+    // Language from body or query string (?lang=es). Defaults to English.
+    const lang = normalizeLang(req.body.lang || req.query.lang);
+
     const prompt = `You are an expert ENVU entomologist AI assistant. 
 Your job is to identify the pest or insect in this image and recommend the most suitable ENVU product.
 
@@ -257,7 +271,8 @@ STRICT MATCHING RULES:
 3. If the pest is ANY mosquito species (Aedes, Anopheles, Culex, etc.) you MUST pick a product from product_segment="Mosquito Management". Never pick a Pest Management product for mosquitoes.
 4. If a product description says "PRIMARY" for that pest type, always choose it.
 5. Respond ONLY with a valid JSON object. No markdown, no extra text.
-6. Use exactly this format:
+6. LANGUAGE: ${i18n.t("ai.instruction", lang)}
+7. Use exactly this format:
 {"insect":"Name of pest","confidence":"95%","threatLevel":"High/Medium/Low - one sentence description","product_name":"Exact product name from catalog","product_category":"Category from catalog","product_segment":"Segment from catalog","product_description":"Exact description from catalog (Do not change or summarize it)","product_img":"Exact product_img from catalog"}`;
 
     console.log("[AI] Sending image to OpenRouter Vision...");
@@ -315,13 +330,21 @@ STRICT MATCHING RULES:
     );
 
     if (matchedProduct) {
-      parsed.product_description = matchedProduct.description;
+      // Localize the description via the DB-backed translations table.
+      // t() falls back to English, then to the key, so a missing translation
+      // never yields undefined — but we also fall back to the catalog's own
+      // English description to be safe.
+      const descKey = `product.${matchedProduct.product_name}.description`;
+      const localizedDesc = i18n.t(descKey, lang);
+      parsed.product_description =
+        localizedDesc === descKey ? matchedProduct.description : localizedDesc;
       parsed.product_category = matchedProduct.product_category;
       parsed.product_category_color = matchedProduct.product_category_color;
       parsed.product_segment = matchedProduct.product_segment;
       parsed.product_img = matchedProduct.product_img;
     }
 
+    parsed.lang = lang;
     res.json(parsed);
   } catch (error) {
     console.error("[AI Error]", error);
@@ -330,3 +353,4 @@ STRICT MATCHING RULES:
 });
 
 module.exports = router;
+module.exports.setI18n = setI18n;
