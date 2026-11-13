@@ -101,31 +101,54 @@ function persistSqlite() {
   }
 }
 
+async function initSqlite() {
+  const initSqlJs = require('sql.js');
+  const SQL = await initSqlJs();
+  if (!fs.existsSync(DB_DIR)) fs.mkdirSync(DB_DIR, { recursive: true });
+
+  if (fs.existsSync(DB_PATH)) {
+    sqliteDb = new SQL.Database(fs.readFileSync(DB_PATH));
+  } else {
+    sqliteDb = new SQL.Database();
+  }
+  sqliteDb.run(SQLITE_SCHEMA);
+  persistSqlite();
+  console.log('[DB] SQLite Schema ready.');
+}
+
 async function initDb() {
   if (isPostgres) {
-    const { Pool } = require('pg');
-    pgPool = new Pool({
-      connectionString: process.env.DATABASE_URL,
-      ssl: { rejectUnauthorized: false } // Required for Render Postgres
-    });
-    console.log('[DB] Connecting to PostgreSQL on Render...');
-    await pgPool.query(PG_SCHEMA);
-    console.log('[DB] PostgreSQL Schema ready.');
-  } else {
-    console.log('[DB] No DATABASE_URL found. Falling back to local SQLite.');
-    const initSqlJs = require('sql.js');
-    const SQL = await initSqlJs();
-    if (!fs.existsSync(DB_DIR)) fs.mkdirSync(DB_DIR, { recursive: true });
-    
-    if (fs.existsSync(DB_PATH)) {
-      sqliteDb = new SQL.Database(fs.readFileSync(DB_PATH));
-    } else {
-      sqliteDb = new SQL.Database();
+    try {
+      const { Pool } = require('pg');
+      pgPool = new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }, // Required for Render Postgres
+        // Fail fast instead of hanging if the host is gone/expired.
+        connectionTimeoutMillis: 10000,
+      });
+      console.log('[DB] Connecting to PostgreSQL...');
+      await pgPool.query(PG_SCHEMA);
+      console.log('[DB] PostgreSQL Schema ready.');
+      return dbWrapper;
+    } catch (err) {
+      // Common case: the free Render Postgres expired/was deleted, so the host
+      // no longer resolves (ENOTFOUND). Rather than crashing the whole API, fall
+      // back to local SQLite so the server still boots. Note: on Render's
+      // ephemeral disk this data is not durable across redeploys, but courses,
+      // products and translations all regenerate from code/seed on boot.
+      console.error(
+        `[DB] PostgreSQL unavailable (${err.code || err.message}). Falling back to SQLite.`
+      );
+      isPostgres = false;
+      try { if (pgPool) await pgPool.end(); } catch { /* ignore */ }
+      pgPool = null;
+      await initSqlite();
+      return dbWrapper;
     }
-    sqliteDb.run(SQLITE_SCHEMA);
-    persistSqlite();
-    console.log('[DB] SQLite Schema ready.');
   }
+
+  console.log('[DB] No DATABASE_URL found. Falling back to local SQLite.');
+  await initSqlite();
   return dbWrapper;
 }
 
