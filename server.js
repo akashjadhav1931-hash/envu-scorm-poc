@@ -96,6 +96,13 @@ app.get('/api/courses', (req, res) => {
 });
 
 // ─── i18n admin endpoints (edit translations without a redeploy) ───────────────
+// GET /api/i18n/bundle?lang=es&prefix=courses.  → flat { key: value } map for the app UI
+app.get('/api/i18n/bundle', (req, res) => {
+  const lang = normalizeLang(req.query.lang);
+  const prefix = typeof req.query.prefix === 'string' ? req.query.prefix : '';
+  res.json({ success: true, lang, data: i18n.getBundle(lang, prefix) });
+});
+
 // GET /api/i18n?lang=es        → list all (or one language's) translations
 app.get('/api/i18n', async (req, res) => {
   try {

@@ -40,6 +40,26 @@ const SEED_TRANSLATIONS = {
     es: 'Protocolos operativos de T&O',
   },
 
+  // ── UI strings: My Learning screen (served to the app via /api/i18n/bundle) ──
+  'courses.title': { en: 'My Learning', es: 'Mi Aprendizaje' },
+  'courses.subtitle': {
+    en: 'In-progress and completed learning',
+    es: 'Aprendizaje en curso y completado',
+  },
+  'courses.wakingUp': {
+    en: 'Waking up the Cloud Server...',
+    es: 'Activando el servidor en la nube...',
+  },
+  'courses.wakingUpDetail': {
+    en: "Render's free tier spins down after inactivity. This usually takes 30-50 seconds!",
+    es: 'El nivel gratuito de Render se suspende tras la inactividad. Esto suele tardar entre 30 y 50 segundos.',
+  },
+  'courses.footer': {
+    en: 'Secure SCORM 1.2 Learning Platform',
+    es: 'Plataforma de aprendizaje segura SCORM 1.2',
+  },
+  'courses.done': { en: 'Done', es: 'Hecho' },
+
   // AI prompt language instruction
   'ai.instruction': {
     en: 'Write the "insect" and "threatLevel" fields in English.',
@@ -202,6 +222,23 @@ function t(key, rawLang) {
   );
 }
 
+/**
+ * Return a flat { key: value } map for a language, optionally limited to keys
+ * starting with `prefix`. English fills in any key missing for the requested
+ * language, so the client never receives a partial bundle.
+ */
+function getBundle(rawLang, prefix = '') {
+  const lang = normalizeLang(rawLang);
+  const out = {};
+  const en = cache[DEFAULT_LANG] || {};
+  const target = cache[lang] || {};
+  for (const key of Object.keys(en)) {
+    if (prefix && !key.startsWith(prefix)) continue;
+    out[key] = target[key] ?? en[key];
+  }
+  return out;
+}
+
 /** Upsert a single translation and refresh the cache. */
 async function setTranslation(key, lang, value) {
   const normLang = normalizeLang(lang);
@@ -244,6 +281,7 @@ module.exports = {
   initI18n,
   reloadCache,
   t,
+  getBundle,
   setTranslation,
   listTranslations,
 };
