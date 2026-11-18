@@ -13,7 +13,7 @@
  *   ai.instruction           (prompt language instruction)
  */
 
-const SUPPORTED_LANGS = ['en', 'es'];
+const SUPPORTED_LANGS = ['en', 'es', 'pl', 'tr'];
 const DEFAULT_LANG = 'en';
 
 function normalizeLang(raw) {
@@ -164,6 +164,12 @@ const SEED_TRANSLATIONS = {
     es: 'Gránulo dispersable de deltametrina para el control de mosquitos vectores en higiene pública. Producto secundario para mosquitos.',
   },
 };
+
+// Merge the Polish + Turkish seed into SEED_TRANSLATIONS (per key, per language).
+const EXTRA_SEED = require('./i18n.seed.pl-tr');
+for (const [key, byLang] of Object.entries(EXTRA_SEED)) {
+  SEED_TRANSLATIONS[key] = { ...(SEED_TRANSLATIONS[key] || {}), ...byLang };
+}
 
 // In-memory cache: { [lang]: { [key]: value } }
 let cache = {};
